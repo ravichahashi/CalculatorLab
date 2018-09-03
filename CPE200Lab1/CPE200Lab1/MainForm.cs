@@ -19,6 +19,7 @@ namespace CPE200Lab1
         private string firstOperand;
         private string operate;
         private string oldOperate;
+        private string memoryOper;
         public CalculatorEngine engine;
 
         private void resetAll()
@@ -105,7 +106,30 @@ namespace CPE200Lab1
             isAllowBack = false;
         }
 
-        private void btnEqual_Click(object sender, EventArgs e)
+        private void btnMemory_Click(object sender, EventArgs e)
+        {
+            operate = ((Button)sender).Text;
+            switch (operate)
+            {
+                case "MC":
+                    memoryOper = "0";
+                    break;
+                case "MR":
+                    lblDisplay.Text = memoryOper;
+                    break;
+                case "MS":
+                    memoryOper = lblDisplay.Text;
+                    break;
+                case "M+":
+                    memoryOper = (Convert.ToDouble(memoryOper) + Convert.ToDouble(lblDisplay.Text)).ToString();
+                    break;
+                case "M-":
+                    memoryOper = (Convert.ToDouble(memoryOper) - Convert.ToDouble(lblDisplay.Text)).ToString();
+                    break;
+            }
+        }
+
+            private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
             {
@@ -172,6 +196,11 @@ namespace CPE200Lab1
         private void btnClear_Click(object sender, EventArgs e)
         {
             resetAll();
+        }
+
+        private void btnClearEntry_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = "0";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
