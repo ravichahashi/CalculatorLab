@@ -83,7 +83,7 @@ namespace CPE200Lab1
             {
                 case "+":
                 case "-":
-                case "X":
+                case "*":
                 case "÷":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
