@@ -129,7 +129,7 @@ namespace CPE200Lab1
             }
         }
 
-            private void btnEqual_Click(object sender, EventArgs e)
+        private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
             {
