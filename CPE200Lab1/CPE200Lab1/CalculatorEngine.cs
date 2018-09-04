@@ -59,6 +59,12 @@ namespace CPE200Lab1
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         // trim the fractional part gracefully. =
+                        //        return result.ToString();
+                        if (parts.Length > 1)
+                        {
+                            if (parts[1].Length < remainLength) remainLength = parts[1].Length;
+                        }
+                        else remainLength = 0;
                         return result.ToString("N" + remainLength);
                     }
                 case "1/x":
@@ -78,7 +84,13 @@ namespace CPE200Lab1
                         }
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
+                        if (parts.Length > 1)
+                        {
+                            if (parts[1].Length < remainLength) remainLength = parts[1].Length;
+                        }
+                        else remainLength = 0;
                         // trim the fractional part gracefully. =
+                        //         return result.ToString();
                         return result.ToString("N" + remainLength);
                     }
                     break;
@@ -114,7 +126,13 @@ namespace CPE200Lab1
                         }
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
+                        if (parts.Length > 1)
+                        {
+                            if (parts[1].Length < remainLength) remainLength = parts[1].Length;
+                        }
+                        else remainLength = 0;
                         // trim the fractional part gracefully. =
+                  //      return result.ToString();
                         return result.ToString("N" + remainLength);
                     }
                     break;
