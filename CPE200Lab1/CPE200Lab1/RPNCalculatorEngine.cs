@@ -8,25 +8,6 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
-        private bool isNumber(string str)
-        {
-            double retNum;
-            return Double.TryParse(str, out retNum);
-        }
-
-        private bool isOperator(string str)
-        {
-            switch (str)
-            {
-                case "+":
-                case "-":
-                case "X":
-                case "÷":
-                    return true;
-            }
-            return false;
-        }
-
         public string Process(string str)
         {
             string[] part = str.Split(' ');
