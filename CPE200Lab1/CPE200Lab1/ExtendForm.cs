@@ -76,11 +76,39 @@ namespace CPE200Lab1
         private void btnUnary_Click(object sender, EventArgs e)
         {
             string[] parts = lblDisplay.Text.Split(' ');
+            switch (((Button)sender).Text)
+            {
+                case "1/x":
+                case "√":
+                    parts[parts.Length - 1] = engine.unaryCalculate(((Button)sender).Text, parts[parts.Length - 1]);
+                    break;
+                case "%":
+                    if (parts.Length == 2)
+                    {
+                        parts[1] = engine.calculate(((Button)sender).Text, parts[0], parts[1]);
+                    } else
+                    {
+                        lblDisplay.Text = "Error";
+                        return ;
+                    }
+                    break;
+            }
+            lblDisplay.Text = parts[0];
+            for (int i = 1; i < parts.Length; i++)
+            {
+                lblDisplay.Text += " " + parts[i];
+            }
+            
+        }
+
+        private void btnPercent_Click(object sender, EventArgs e)
+        {
+            string[] parts = lblDisplay.Text.Split(' ');
             parts[parts.Length - 1] = engine.unaryCalculate(((Button)sender).Text, parts[parts.Length - 1]);
             lblDisplay.Text = parts[0];
             for (int i = 1; i < parts.Length; i++)
             {
-                lblDisplay.Text +=" "+parts[i];
+                lblDisplay.Text += " " + parts[i];
             }
         }
 
