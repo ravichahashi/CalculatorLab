@@ -13,8 +13,7 @@ namespace CPE200Lab1
             string[] part = str.Split(' ');
             if (part.Length < 2) return "E";
             Stack<string> oper = new Stack<string>();
-            int i = 0;
-            while (i<part.Length)
+            for(int i=0;i<part.Length;i++)
             {
                 if (isNumber(part[i]))
                 {
@@ -33,7 +32,6 @@ namespace CPE200Lab1
                     }
                     else return "E";
                 }
-                i++;
             }
             if (oper.Count > 1) return "E";
             return oper.Pop();
