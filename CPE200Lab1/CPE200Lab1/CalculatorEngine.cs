@@ -38,6 +38,7 @@ namespace CPE200Lab1
             }
 
         }
+
         public string unaryCalculate(string operate, string operand, int maxOutputSize = 8)
         {
             switch (operate)
@@ -59,7 +60,6 @@ namespace CPE200Lab1
                         // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         // trim the fractional part gracefully. =
-                        //        return result.ToString();
                         if (parts.Length > 1)
                         {
                             if (parts[1].Length < remainLength) remainLength = parts[1].Length;
@@ -73,7 +73,7 @@ namespace CPE200Lab1
                         double result;
                         string[] parts;
                         int remainLength;
-
+                        
                         result = (1.0 / Convert.ToDouble(operand));
                         // split between integer part and fractional part
                         parts = result.ToString().Split('.');
@@ -90,7 +90,6 @@ namespace CPE200Lab1
                         }
                         else remainLength = 0;
                         // trim the fractional part gracefully. =
-                        //         return result.ToString();
                         return result.ToString("N" + remainLength);
                     }
                     break;
@@ -132,7 +131,6 @@ namespace CPE200Lab1
                         }
                         else remainLength = 0;
                         // trim the fractional part gracefully. =
-                  //      return result.ToString();
                         return result.ToString("N" + remainLength);
                     }
                     break;

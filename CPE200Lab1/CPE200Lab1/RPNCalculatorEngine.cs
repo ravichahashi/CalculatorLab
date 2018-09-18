@@ -24,13 +24,17 @@ namespace CPE200Lab1
                     if (i == 0) return "E";
                     string firstOperand;
                     string secondOperand;
-                    if (oper.Count >= 2)
+
+                    try
                     {
                         secondOperand = oper.Pop();
                         firstOperand = oper.Pop();
-                        oper.Push(calculate(part[i], firstOperand, secondOperand, 4));
                     }
-                    else return "E";
+                    catch (InvalidOperationException ex)
+                    {
+                        return "E";
+                    }
+                    oper.Push(calculate(part[i], firstOperand, secondOperand, 4));
                 }
             }
             if (oper.Count > 1) return "E";
