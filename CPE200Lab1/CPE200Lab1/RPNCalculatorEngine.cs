@@ -11,7 +11,6 @@ namespace CPE200Lab1
         public string Process(string str)
         {
             string[] part = str.Split(' ');
-            if (part.Length < 2) return "E";
             Stack<string> oper = new Stack<string>();
             for(int i=0;i<part.Length;i++)
             {
@@ -21,7 +20,6 @@ namespace CPE200Lab1
                 }
                 if (isOperator(part[i]))
                 {
-                    if (i == 0) return "E";
                     string firstOperand;
                     string secondOperand;
 
