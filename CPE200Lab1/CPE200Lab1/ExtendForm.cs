@@ -80,7 +80,7 @@ namespace CPE200Lab1
             {
                 case "1/x":
                 case "√":
-                    parts[parts.Length - 1] = engine.unaryCalculate(((Button)sender).Text, parts[parts.Length - 1]);
+                    parts[parts.Length - 1] = engine.calculate(((Button)sender).Text, parts[parts.Length - 1]);
                     break;
                 case "%":
                     if (parts.Length == 2)
@@ -104,7 +104,7 @@ namespace CPE200Lab1
         private void btnPercent_Click(object sender, EventArgs e)
         {
             string[] parts = lblDisplay.Text.Split(' ');
-            parts[parts.Length - 1] = engine.unaryCalculate(((Button)sender).Text, parts[parts.Length - 1]);
+            parts[parts.Length - 1] = engine.calculate(((Button)sender).Text, parts[parts.Length - 1]);
             lblDisplay.Text = parts[0];
             for (int i = 1; i < parts.Length; i++)
             {
@@ -151,7 +151,7 @@ namespace CPE200Lab1
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            string result = rpnEngine.Process(lblDisplay.Text);
+            string result = rpnEngine.calculate(lblDisplay.Text);
             if (result is "E")
             {
                 lblDisplay.Text = "Error";
