@@ -1,6 +1,6 @@
 ﻿namespace CPE200Lab1
 {
-    partial class MainForm
+    partial class CalculatorView
     {
         /// <summary>
         /// Required designer variable.

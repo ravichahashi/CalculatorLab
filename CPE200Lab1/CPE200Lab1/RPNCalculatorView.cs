@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CPE200Lab1
 {
-    public partial class ExtendForm : Form
+    public partial class RPNCalculatorView : Form
     {
         private bool isNumberPart = false;
         private bool isContainDot = false;
@@ -19,7 +19,7 @@ namespace CPE200Lab1
         private RPNCalculatorEngine rpnEngine;
         private string memoData;
 
-        public ExtendForm()
+        public RPNCalculatorView()
         {
             InitializeComponent();
             engine = new CalculatorEngine();

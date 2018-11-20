@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace CPE200Lab1
 {
-    public partial class MainForm : Form
+    public partial class CalculatorView : Form, View
     {
+        Model model;
+        Controller controller;
+
         private bool hasDot;
         private bool isAllowBack;
         private bool isAfterOperater;
@@ -33,12 +36,28 @@ namespace CPE200Lab1
 
       
 
-        public MainForm()
+        public CalculatorView()
         {
             InitializeComponent();
+            model = new CalculatorModel();
+            model.AttachObserver(this);
+            controller = new CalculatorController();
+            controller.AddModel(model);
+            model.NotifyAll();
+
             memory = 0;
             engine = new CalculatorEngine();
             resetAll();
+        }
+
+        public void Notify(Model m)
+        {
+            CalculatorModel cm = (CalculatorModel)m;
+            if (cm.reset == true)
+            {
+                lblDisplay.Text = "0";
+                cm.reset = false;
+            }
         }
 
         private void btnNumber_Click(object sender, EventArgs e)
