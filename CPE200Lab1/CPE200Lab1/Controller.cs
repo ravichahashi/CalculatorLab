@@ -21,7 +21,7 @@ namespace CPE200Lab1
         }
 
         // virtual keyword allow the method to be overriden
-        public virtual void ActionPerformed(int action)
+        public virtual void ActionPerformed(int action, string operate="", string firstOperand="", string secondOperand="")
         {
             throw new NotImplementedException();
         }
